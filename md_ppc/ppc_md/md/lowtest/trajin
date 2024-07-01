@@ -1,0 +1,6 @@
+#!/bin/sh
+
+trajin ../md1.nc  986 986 1
+
+trajout md_low_wt.pdb pdb
+

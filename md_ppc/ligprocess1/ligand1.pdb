@@ -1,0 +1,10 @@
+REMARK   Accelrys Discovery Studio PDB file
+REMARK   Created:  2024-03-21T13:45:05Z
+HETATM    1  OH2 WAT   335       7.751  22.825  15.061  0.00  1.00           O  
+HETATM    2  H1  WAT   335       8.516  22.240  15.110  0.41  1.00           H  
+HETATM    3  H2  WAT   335       7.476  22.945  15.988  0.41  1.00           H  
+TER       4      WAT   335 
+CONECT    1    2    3
+CONECT    2    1
+CONECT    3    1
+END

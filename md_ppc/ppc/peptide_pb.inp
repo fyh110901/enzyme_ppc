@@ -1,0 +1,38 @@
+ &input
+    tasktype=7,                         !!1: interaction energy. 2: ab initio. 3: cubgen 4. total energy 5. cosmo. 6. fit charge. 7. PB
+    job=2,                              !!job type. 0:summary. 1: generate gaussian input. 2: run full job
+    explhb=0,                           !!treat hydrogen bond or not
+    chgdres=1,                          !!charged or neutralized residues (side chain and terminal)
+    mdchg=0,                            !!manually define residue charge
+    captype=2,                          !!cap type 1: CH3CO-NHCH3 2: CH2R1CO-NHCH2R2 3. CH3COHNCHR1CO-NHCHR2CONHCH3
+    withlig=1,                          !!electronic structure of protein with ligand or not.
+    chgmod=0,                           !!atomic partial charge model. 0: read from pdb file 1: amber94
+    ligchgmod=0,                        !!0:read from pdb file 1:read from file
+    ligchgfile='ligchg.dat'             !!file containing charge info of ligand atoms
+    chgfile='reschg.dat',               !!default residue charge file
+    pdbinfile='peptide.out.pdb',            !!default protein pdb file
+    pdboutfile='peptide.out.pdb'        !!default protein out file
+    strip=0,                            !!remove water molecules and ions
+ &end
+ &ligand
+    nligchg=0                          !!ligand charge.
+    nligspn=1                          !!ligand spin
+ &end
+ &pbcontrol
+    scale=3.0,
+    perfil=75.0, 
+    indi=1.0,
+    exdi=80.0,
+    prbrad=1.4,
+    salt=0.20,
+    bndcon=2,
+    maxc=0.0001,
+    linit=1500,
+    pbpdbfile="peptide.out.pdb",
+    pbsizefile='mfcc.siz',
+    pbchgfile='peptide.crg',
+    pbprmfile='peptide.prm',
+    pboutput='delphi.log',
+    delphi="./delphi"
+ &end
+

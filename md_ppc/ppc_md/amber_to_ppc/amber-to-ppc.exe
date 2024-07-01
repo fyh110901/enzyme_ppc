@@ -1,0 +1,16 @@
+#!/bin/sh
+
+#ifort lig.f -o lig.out
+#./lig.out
+#ifort lig1.f -o lig1.out
+#./lig1.out
+
+#ifort pro.f -o pro.out
+#./pro.out
+
+#ifort com.f -o com.out
+#./com.out
+
+ifort com_solv.f -o com_solv.out
+./com_solv.out
+

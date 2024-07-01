@@ -1,0 +1,37 @@
+ &input
+    tasktype=6,                         !!1: interaction energy. 2: ab initio. 3: cubgen 4. total energy 5. cosmo. 6. fit charge. 7. PB
+    job=2,                              !!job type. 0:summary. 1: generate gaussian input. 2: run full job
+    explhb=0,                           !!treat hydrogen bond or not
+    chgdres=1,                          !!charged or neutralized residues (side chain and terminal)
+    mdchg=0,                            !!manually define residue charge
+    captype=2,                          !!cap type 1: CH3CO-NHCH3 2: CH2R1CO-NHCH2R2 3. CH3COHNCHR1CO-NHCHR2CONHCH3
+    withlig=1,                          !!electronic structure of protein with ligand or not.
+    chgmod=0,                           !!atomic partial charge model. 0: read from pdb file 1: amber94
+    ligchgmod=0,                        !!0:read from pdb file 1:read from file
+    ligchgfile='ligchg.dat'             !!file containing charge info of ligand atoms
+    chgfile='reschg.dat',               !!default residue charge file
+    pdbinfile='peptide.out.pdb',            !!default protein pdb file
+    pdboutfile='peptide.out.pdb'        !!default protein out file
+    strip=0,                            !!remove water molecules and ions
+ &end
+ &ligand
+    nligchg=0                         !!ligand charge.
+    nligspn=1                         !!ligand spin
+ &end
+ &abinitio
+    savechk=1,                          !!save chk file or not. 1:save(default). 0: do not save
+    converg=6,                          !!convergence criterial.
+    gausscomm='g16'                     !!gaussian version: g03 or g98
+    abmethod='B3LYP',                      !!ab initio level
+    basis='6-31G*',                     !!ab initio basis
+    memory='200MW',                      !!memory allocated in gaussian input files
+    nprocshared=1,                      !!number of processors for each gaussian job
+    withbgc=1,                          !!1: with background charge; 0: without background charge
+    solvation=1,                        !!in gas phase or solution. 0=gas phase. 1=solution
+    keywords='',                        !!other keywords
+ &end
+ &chargefit
+    fitmethod='resp'
+    actter=1,
+ &end
+

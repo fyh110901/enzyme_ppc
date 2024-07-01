@@ -1,0 +1,51 @@
+#source
+source oldff/leaprc.ff14SB
+source leaprc.gaff
+source leaprc.water.tip3p
+
+#loadamberprep sep.prepin
+#loadamberparams frcmod.sep
+#wat = loadmol2 ligand1.mol2
+#check wat
+#loadamberparams ligand.frcmod
+loadamberparams ligand1.frcmod
+loadoff  wat.lib
+#loadamberparams ligand2.frcmod
+loadamberparams frcmod.ionsjc_tip3p
+#saveamberparm wat wat.prmtop wat.inpcrd
+
+c = loadpdb com.pdb
+#p = loadpdb protein.pdb
+#l = loadpdb ligand.pdb
+#l1 = loadmol2 ligand1.mol2
+#l2 = loadmol2 ligand2.mol2
+##if there are disulfide bond(SS), insert "bond p.ID.SG p.ID.SG"
+#bond p.213.SG p.248.SG
+#c = combine { p l}
+#c = combine { p l l1}
+
+set default PBradii mbondi2
+#savepdb p pro.pdb
+#savepdb l lig.pdb
+#savepdb l1 lig1.pdb
+#savepdb l2 lig2.pdb
+#savepdb c com_solv.pdb
+
+#saveamberparm p pro.prmtop pro.inpcrd
+#saveamberparm l lig.prmtop lig.inpcrd
+#saveamberparm l1 lig1.prmtop lig1.inpcrd
+#saveamberparm l2 lig2.prmtop lig2.inpcrd
+saveamberparm c com.prmtop com.inpcrd
+
+#
+solvateOct c   TIP3PBOX 12.0
+
+#
+charge c
+addions c Cl- 0
+addions c Na+ 0
+savepdb c com_solv.pdb
+saveamberparm c com_solv.prmtop com_solv.inpcrd
+
+quit
+
